@@ -170,6 +170,6 @@ ORDER BY ml.log_date DESC;
 **Files**
 File	Description
 **inventory_schema.sql**	Complete schema, sample data, indexes & views
-**README.md**	Project documentation
 
+**README.md**	Project Explaination
 
