@@ -1,13 +1,12 @@
 **School Inventory Management System | SQL Portfolio Project**
 
 MySQL database schema for School Inventory Management System | 
-**Functionally designed and implemented by Hafsa Mughal** |
-at Asas International School, Islamabad |
+**Functionally designed and implemented** by Hafsa Mughal **for a real-world school inventory management workflow**.|
 **Currently live across 6 branches tracking 1000+ assets** |
 SQL schema with sample data for portfolio demonstration |
 
 **Problem Statement**
-Asas International School managed 1000+ assets across 6 branches with no central digital system.
+School managed 1000+ assets across 6 branches with no central digital system.
 Before this system:
 1. Tracking was entirely manual and paper-based
 2. Monthly reconciliation took 2 full days every month
@@ -17,7 +16,7 @@ Before this system:
 6. Purchase history had no vendor linkage or audit trail
 
 **My Role**
-As Business Systems Analyst & IT Incharge at Asas International School, I:
+As Business Systems Analyst & IT Incharge, I:
 1. Conducted gap analysis and stakeholder interviews across all departments
 2. Defined system logic — categories, locations, transaction types, and report formats
 3. Designed complete functional flow and data structure specifications
