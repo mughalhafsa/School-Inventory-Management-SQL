@@ -32,7 +32,7 @@ built with sample data for portfolio demonstration purposes._
 
 
 **Database Schema
-Tables (9)**
+Tables**
 
 1. **staff**	Employee records with department & designation
 2. **vendor**	Supplier information and contact details
@@ -45,7 +45,7 @@ Tables (9)**
 9. **material_log**	Full transaction history (Add/Move/Remove/Consume/Issue/Return)
 10. **asset_issuance**	Staff-wise asset issue & return tracking
 
-**Views (8**)
+**Views**
 
 1. **current_stock**	Available stock + stock value per item
 2. **category_wise_summary**	Active vs inactive materials per category
