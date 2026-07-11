@@ -1,5 +1,10 @@
 **School Inventory Management System | SQL Portfolio Project**
-   
+MySQL database schema for School Inventory Management System | 
+Functionally designed and implemented by Hafsa Mughal |
+at Asas International School, Islamabad |
+Currently live across 6 branches tracking 1000+ assets |
+SQL schema with sample data for portfolio demonstration |
+
 **Problem Statement**
 Asas International School managed 1000+ assets across 6 branches with no central digital system.
 Before this system:
@@ -102,6 +107,7 @@ Metric | Before |	After
 3.	Paste inventory_schema.sql in the Schema SQL box
 4.	Click Run
 5.	Paste queries in Query SQL box to explore:
+   
    **Quries**
 **-- Report 1: Current stock**
 SELECT * FROM current_stock ORDER BY category_name, item_name;
