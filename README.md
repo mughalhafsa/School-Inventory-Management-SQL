@@ -28,49 +28,49 @@ built with sample data for portfolio demonstration purposes._
 **Database Schema
 Tables (9)**
 
-**staff**	Employee records with department & designation
-**vendor**	Supplier information and contact details
-**category**Asset categories (Electrical, IT, Furniture, etc.)
-**subcategory**	Sub-classifications linked to parent category
-**location**	Physical locations (Room 1, Room 2, etc.)
-**sublocation**	Sub-areas within locations (Section 1, Section 2)
-**purchase**	Purchase records linked to vendor, staff & invoice
-**material**	Master item registry with price & minimum threshold
-**material_log**	Full transaction history (Add/Move/Remove/Consume/Issue/Return)
-**asset_issuance**	Staff-wise asset issue & return tracking
+1. **staff**	Employee records with department & designation
+2. **vendor**	Supplier information and contact details
+3. **category**Asset categories (Electrical, IT, Furniture, etc.)
+4. **subcategory**	Sub-classifications linked to parent category
+5. **location**	Physical locations (Room 1, Room 2, etc.)
+6. **sublocation**	Sub-areas within locations (Section 1, Section 2)
+7. **purchase**	Purchase records linked to vendor, staff & invoice
+8. **material**	Master item registry with price & minimum threshold
+9. **material_log**	Full transaction history (Add/Move/Remove/Consume/Issue/Return)
+10. **asset_issuance**	Staff-wise asset issue & return tracking
 
 **Views (8**)
 
-**current_stock**	Available stock + stock value per item
-**category_wise_summary**	Active vs inactive materials per category
-**threshold_alert**	Items below minimum quantity — reorder required
-**location_stock**Stock quantity per location (Move logic included)
-**unassigned_materials**	Items added but no location assigned (Inactive)
-**staff_asset_dashboard**	Which staff has which asset issued
-**purchase_history**	Full vendor-wise purchase trail with invoice
-**weekly_comparison**	This week vs last week stock movement (dynamic dates)
+1. **current_stock**	Available stock + stock value per item
+2. **category_wise_summary**	Active vs inactive materials per category
+3. **threshold_alert**	Items below minimum quantity — reorder required
+4. **location_stock**Stock quantity per location (Move logic included)
+5. **unassigned_materials**	Items added but no location assigned (Inactive)
+6. **staff_asset_dashboard**	Which staff has which asset issued
+7. **purchase_history**	Full vendor-wise purchase trail with invoice
+8. **weekly_comparison**	This week vs last week stock movement (dynamic dates)
 
 **Technical Features**
 
-**ENUM** for action_type	Enforces only valid transaction types
-**AUTO_INCREMENT PKs**	Clean, auto-managed primary keys
-**UNIQUE** constraint on material	Prevents duplicate items per category
-**CHECK** constraints	quantity > 0, price >= 0, minimum_quantity >= 0
-**ON DELETE CASCADE / SET NULL**	Referential integrity across all tables
-**8 Indexes**	Optimized query performance on high-use columns
-**source_location_id**	Tracks Move transactions — deducts from origin, adds to destination
-**DATEDIFF & DATE_SUB**	Dynamic time-based analysis without hardcoded dates
-**CASE WHEN**	Flexible stock calculations across all action types
-**COALESCE**Handles NULL values gracefully in reports
+1. **ENUM** for action_type	Enforces only valid transaction types
+2. **AUTO_INCREMENT PKs**	Clean, auto-managed primary keys
+3. **UNIQUE** constraint on material	Prevents duplicate items per category
+4. **CHECK** constraints	quantity > 0, price >= 0, minimum_quantity >= 0
+5. **ON DELETE CASCADE / SET NULL**	Referential integrity across all tables
+6. **8 Indexes**	Optimized query performance on high-use columns
+7. **source_location_id**	Tracks Move transactions — deducts from origin, adds to destination
+8. **DATEDIFF & DATE_SUB**	Dynamic time-based analysis without hardcoded dates
+9. **CASE WHEN**	Flexible stock calculations across all action types
+10. **COALESCE**Handles NULL values gracefully in reports
 
 **Transaction Types**
 
-**Add**	New item added to inventory at a location
-**Move**	Item moved from one location to another
-**Remove**	Item permanently removed (damaged, lost)
-**Consume**	Consumable item used (stationery, grocery, janitorial)
-**Issue**	Item issued to a staff member
-**Return**	Issued item returned by staff member
+1. **Add**	New item added to inventory at a location
+2. **Move**	Item moved from one location to another
+3. **Remove**	Item permanently removed (damaged, lost)
+4. **Consume**	Consumable item used (stationery, grocery, janitorial)
+5. **Issue**	Item issued to a staff member
+6. **Return**	Issued item returned by staff member
 
 **Key Insights (from sample data)**
 1. Stationery & Janitorial items fall below threshold → reorder required
@@ -82,13 +82,13 @@ Tables (9)**
 7. Full purchase trail across 4 vendors with invoice numbers
    
 **Business Impact**
-Metric	Before	After
-**Reconciliation** time	2 days/month	1 hour/week
-**Asset visibility**	Zero	Real-time across 6 branches
-**Reorder alerts**	Manual	Automatic via threshold view
-**Move tracking**	Not tracked	Source + destination logged
-**Audit trail**	Paper-based	Full digital history
-**Purchase accountability** None	Vendor + invoice + staff linked
+Metric | Before |	After
+1. **Reconciliation** time	2 days/month |	1 hour/week
+2. **Asset visibility**	Zero | 	Real-time across 6 branches
+3. **Reorder alerts**	Manual |	Automatic via threshold view
+4. **Move tracking**	Not  | tracked	Source + destination logged
+5. **Audit trail**	Paper-based	 | Full digital history
+6. **Purchase accountability** None	 | Vendor + invoice + staff linked
 
 **Challenges & Learning**
 1. Move Logic Tracking moves required source_location_id — without it, stock at origin location would not be deducted, causing incorrect location totals.
