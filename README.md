@@ -30,7 +30,7 @@ Tables (9)**
 
 **staff**	Employee records with department & designation
 **vendor**	Supplier information and contact details
-**category	**Asset categories (Electrical, IT, Furniture, etc.)
+**category**Asset categories (Electrical, IT, Furniture, etc.)
 **subcategory**	Sub-classifications linked to parent category
 **location**	Physical locations (Room 1, Room 2, etc.)
 **sublocation**	Sub-areas within locations (Section 1, Section 2)
@@ -52,7 +52,7 @@ Tables (9)**
 
 **Technical Features**
 
-**ENUM ** for action_type	Enforces only valid transaction types
+**ENUM** for action_type	Enforces only valid transaction types
 **AUTO_INCREMENT PKs**	Clean, auto-managed primary keys
 **UNIQUE** constraint on material	Prevents duplicate items per category
 **CHECK** constraints	quantity > 0, price >= 0, minimum_quantity >= 0
