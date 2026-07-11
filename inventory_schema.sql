@@ -1,9 +1,3 @@
--- MySQL database schema for School Inventory Management System
--- Functionally designed and implemented by Hafsa Mughal
--- at Asas International School, Islamabad
--- Currently live across 6 branches tracking 600+ assets
--- SQL schema with sample data for portfolio demonstration
-
 
 SET FOREIGN_KEY_CHECKS = 0;
 SET autocommit = 0;
