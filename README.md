@@ -102,74 +102,10 @@ Metric | Before |	After
 3. Consumable vs Permanent Assets Consumables (stationery, grocery, janitorial) need threshold alerts and high-frequency tracking. Permanent assets (furniture, IT) need location and issuance tracking. Both handled in one unified schema.
 4. Duplicate Prevention UNIQUE (item_name, category_id) composite constraint prevents the same item from being added twice in the same category while allowing same name across different categories.
 
-**How to Run**
-1.	Open db-fiddle.com
-2.	Select MySQL 8.0
-3.	Paste inventory_schema.sql in the Schema SQL box
-4.	Click Run
-5.	Paste queries in Query SQL box to explore:
-   
-   **Quries**
-**-- Report 1: Current stock**
-SELECT * FROM current_stock ORDER BY category_name, item_name;
-
-**-- Report 2: Category wise summary**
-SELECT * FROM category_wise_summary ORDER BY category_name;
-
-**-- Report 3: Location wise stoc**k
-SELECT * FROM location_stock ORDER BY location_name, item_name;
-
-**-- Report 4: Threshold alert**
-SELECT * FROM threshold_alert ORDER BY category_name;
-
-**-- Report 5: Unassigned materials**
-SELECT * FROM unassigned_materials ORDER BY days_unassigned DESC;
-
-**-- Report 6: Staff asset dashboard**
-SELECT * FROM staff_asset_dashboard ORDER BY department;
-
-**-- Report 7: Purchase history**
-SELECT * FROM purchase_history ORDER BY purchase_date DESC;
-
-**-- Report 8: Weekly comparison**
-SELECT * FROM weekly_comparison ORDER BY category_name;
-
-**-- Report 9: Movement history**
-SELECT 
-    ml.log_id,
-    m.item_name,
-    c.category_name,
-    ml.action_type,
-    src.location_name AS from_location,
-    dst.location_name AS to_location,
-    ml.quantity,
-    ml.reason,
-    ml.log_date
-FROM material_log ml
-JOIN material m ON ml.material_id = m.material_id
-JOIN category c ON m.category_id = c.category_id
-LEFT JOIN location src ON ml.source_location_id = src.location_id
-LEFT JOIN location dst ON ml.location_id = dst.location_id
-ORDER BY ml.log_date DESC, ml.log_id DESC;
-
-**-- Report 10: Consumed items detail**
-SELECT 
-    m.item_name,
-    c.category_name,
-    lo.location_name,
-    ml.quantity AS consumed_qty,
-    ml.reason,
-    ml.log_date
-FROM material_log ml
-JOIN material m ON ml.material_id = m.material_id
-JOIN category c ON m.category_id = c.category_id
-JOIN location lo ON ml.location_id = lo.location_id
-WHERE ml.action_type = 'Consume'
-ORDER BY ml.log_date DESC;
 
 **Files**
 File	Description
 **inventory_schema.sql**	Complete schema, sample data, indexes & views
-
+**Quries**  to explore database
 **README.md**	Project Explaination
 
