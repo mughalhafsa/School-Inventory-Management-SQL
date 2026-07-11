@@ -106,6 +106,6 @@ Metric | Before |	After
 **Files**
 File	Description
 **inventory_schema.sql**	Complete schema, sample data, indexes & views
-**Quries**  to explore database
+**Queries**  to explore database
 **README.md**	Project Explaination
 
